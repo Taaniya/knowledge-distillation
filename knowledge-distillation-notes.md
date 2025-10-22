@@ -1,12 +1,14 @@
 
 
-#### Teacher and student networks –
+## Teacher and student networks –
 * Knowledge distillation – Capture and distill knowledge learned by model in a more compact model by using knowledge distillation training method
 * It aims to create a more efficient model which captures the same knowledge as a more sophisticated and complex model. If needed, further optimization can be applied to the result.
 * It is a way to train a small model to mimic a larger model or even an ensemble of models.
     * It starts by 1st training a complex model or a model ensemble and achieve high accuracy.
     * It then uses that model as a teacher for a simpler student model which will be the actual model that gets deployed in production
     * This teacher network can either be fixed or jointly optimized and can even be used to train multiple student models of different sizes simultaneously.
+
+### Basic knowledge distillation -
 
 **Training objectives of teacher and student models –**
 1.	Teacher – normal training (maximizes actual metric)
@@ -54,14 +56,46 @@ $L_KL$ = KL divergence loss from teacher’s logits
     * Smaller version of BERT, where the token type embeddings and pooler layer used for Next sentence classification task are removed. The rest of the architecture remains identical, while reducing the no. of layers.
 
 
-
 References =
-* [Stanford ML](https://cs229.stanford.edu/main_notes.pdf)
+* [Stanford ML](https://cs229.stanford.edu/main_notes.pdf
 * [Stanford – Neural Language Generation](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/slides/cs224n-2023-lecture10-nlg.pdf))
 * https://www.coursera.org/learn/machine-learning-modeling-pipelines-in-production/home/module/3
 * https://docs.pytorch.org/tutorials/beginner/knowledge_distillation_tutorial.html
+  
+
+### 2 stage Multi Teacher Knowledge Distillation (TMKD) -
+Case study - knowledge distillation for a Q&A task
+**Motivation for TMKD approach -**  
+* Applying complex models to real business scenarios become challenging due to the vast amount of model parameters.
+* Older model compression methods suffer from information loss during the model compression procedure.
+* This leads to inferior models compared to the original one.
+* This basic knowledge distillation approach is known as a one-on-one model because one teacher transfers knowledge to one student
+* Although this approach effectively reduces the number of parameters and the time for model inference, due to the information loss during knowledge desolation, the performance of the student model is sometimes not on par with that of the teacher.
+ 
+**Approach to tackle this limitation - two stage multi teacher knowledge distillation method (TMKD) -**
+**Gist -**
+1. First develop a general Q&A distillation task for student model pre training. 
+2.	And further fine tune this pretrained student model with a multi teacher knowledge distillation model.
+    * This approach is called M on M or many on many ensemble model. Combining both ensemble and knowledge distillation. 
+
+**Approach -**
+* This involves first training multiple teacher models. The models could be BERT or GPT or others similarly powerful models, each having different hyper-parameters.
+* Then a student model for each teacher model is then trained.
+* Finally, the student models trained from different teachers are ensemble to create the final result. Here, you prepare each teacher for a particular learning objective and then train them.
+* Different models have different generalization of capabilities and they also over fit the training data in different ways, achieving performance close to the teacher model.
+* TMKD outperforms various state of the art baselines and it has been applied to real commercial scenarios since ensemble it is employed here.
+* These compressed models benefit from large scale data and learned feature representations well.
+* Results from experiments show that it can considerably outperformed baseline methods. And even achieve comparable results to the original teacher models along with a substantial speed up of model inference. 
+
+**Benefits of TMKD -**
+* TMKD uses a multi teacher distillation task for student model pre training to boost model performance.  
+    * Based on experimental evaluations, MKD outperforms KD on a majority of tasks demonstrating that a multi teacher distillation approach can help the student model learn more generalized knowledge, fusing knowledge from different teachers.
+    * Further, TMKD significantly outperforms TKD at MKD in all datasets, which verifies the complementary impact of the two stages distillation: pre training and multi teacher fine tuning. 
 
 
+References -
+* https://www.coursera.org/learn/machine-learning-modeling-pipelines-in-production/home/module/3
+* [Model Compression with Two-stage Multi-teacher Knowledge Distillation for Web Question Answering System, Yang et al., ACM 2020](https://arxiv.org/pdf/1910.08381)
 
 
 
