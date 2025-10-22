@@ -1,4 +1,6 @@
 
+1. [Basic knowledge distillation](##basic-knowledge-distillation--)
+2. [2 stage Multi Teacher Knowledge Distillation (TMKD)](#2-stage-multi-teacher-knowledge-distillation-tmkd--)
 
 ## Teacher and student networks –
 * Knowledge distillation – Capture and distill knowledge learned by model in a more compact model by using knowledge distillation training method
