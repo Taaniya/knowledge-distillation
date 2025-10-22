@@ -57,8 +57,8 @@ $L_KL$ = KL divergence loss from teacher’s logits
 
 
 References =
-* [Stanford ML](https://cs229.stanford.edu/main_notes.pdf
-* [Stanford – Neural Language Generation](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/slides/cs224n-2023-lecture10-nlg.pdf))
+* [Stanford ML](https://cs229.stanford.edu/main_notes.pdf)
+* [Stanford – Neural Language Generation](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/slides/cs224n-2023-lecture10-nlg.pdf)
 * https://www.coursera.org/learn/machine-learning-modeling-pipelines-in-production/home/module/3
 * https://docs.pytorch.org/tutorials/beginner/knowledge_distillation_tutorial.html
   
