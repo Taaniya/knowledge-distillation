@@ -58,7 +58,7 @@ $L_KL$ = KL divergence loss from teacher’s logits
     * Smaller version of BERT, where the token type embeddings and pooler layer used for Next sentence classification task are removed. The rest of the architecture remains identical, while reducing the no. of layers.
 
 
-References =
+References -
 * [Stanford ML](https://cs229.stanford.edu/main_notes.pdf)
 * [Stanford – Neural Language Generation](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/slides/cs224n-2023-lecture10-nlg.pdf)
 * https://www.coursera.org/learn/machine-learning-modeling-pipelines-in-production/home/module/3
