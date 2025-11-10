@@ -37,11 +37,12 @@
 2.	Compare distribution of predictions (student and teacher) using KL divergence (more widely used)
 
 2nd technique - using KL divergence –
-With this, KD is performed by blending 2 loss functions, where alpha’s value is chosen between 0 and 1.
+
+* With this, knowledge distillation is performed by blending two loss functions, where alpha’s value is chosen between 0 and 1.
 
 $L = (1- \alpha) L_H + \alpha L_KL$
 
-$L$ – CEL from hard labels
+$L$ – CEL (Cross entropy loss) from hard labels
 $L_KL$ = KL divergence loss from teacher’s logits
 
 * KL divergence here is the metric of the difference between 2 prob distributions
