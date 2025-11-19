@@ -99,6 +99,7 @@ Case study - knowledge distillation for a Q&A task
 References -
 * https://www.coursera.org/learn/machine-learning-modeling-pipelines-in-production/home/module/3
 * [Model Compression with Two-stage Multi-teacher Knowledge Distillation for Web Question Answering System, Yang et al., ACM 2020](https://arxiv.org/pdf/1910.08381)
+* [Knowledge distillation tutorial - pytorch](https://docs.pytorch.org/tutorials/beginner/knowledge_distillation_tutorial.html)
 
 
 
